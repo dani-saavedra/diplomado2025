@@ -1,5 +1,10 @@
 package co.edu.unisabana.diplomado2025.DIP.alto;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+
 public class PasarelaPago {
 
     //Dos formas de hacer inyección dependencias:
@@ -11,7 +16,7 @@ public class PasarelaPago {
         this.notificacion = notificacion;
     }
 
-    void procesarPago() {
+    public void procesarPago() {
         //Bla bla bla Pagamos bla bla bla
         System.out.println("Procesando pago");
         // NotificacionAldeamo notificacion = new NotificacionAldeamo();
@@ -25,3 +30,5 @@ public class PasarelaPago {
 
 //Yo puedo hacer Inyeccion sin Inversion
 //Pero no puedo hacer inversion sin inyeccion.
+
+// Inversion de Control (IoC)

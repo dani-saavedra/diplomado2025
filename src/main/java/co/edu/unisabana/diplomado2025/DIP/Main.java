@@ -1,6 +1,7 @@
 package co.edu.unisabana.diplomado2025.DIP;
 
 import co.edu.unisabana.diplomado2025.DIP.alto.PasarelaPago;
+import co.edu.unisabana.diplomado2025.DIP.bajo.AdapterAldeamo;
 import co.edu.unisabana.diplomado2025.DIP.bajo.AdapterMassivian;
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
     //Aldeamo & Massivan &  Twilio.
 
     public static void main(String[] args) {
-        PasarelaPago pago = new PasarelaPago(new AdapterMassivian());
+        PasarelaPago pago = new PasarelaPago(new AdapterAldeamo());
         pago.procesarPago();
     }
 }
