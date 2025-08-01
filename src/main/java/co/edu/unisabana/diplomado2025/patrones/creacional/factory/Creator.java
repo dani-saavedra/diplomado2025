@@ -1,6 +1,6 @@
 package co.edu.unisabana.diplomado2025.patrones.creacional.factory;
 
-public interface FabricaMundo {
+public interface Creator {
 
     Enemigo crearEnemigo(String dificultad);
 }
