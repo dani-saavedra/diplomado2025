@@ -1,6 +1,6 @@
 package co.edu.unisabana.diplomado2025.patrones.creacional.factory;
 
-public class MundoAcuaticoFabrica implements FabricaEnemigo {
+public class MundoAcuaticoFabrica implements FabricaMundo {
     @Override
     public Enemigo crearEnemigo(String dificultad) {
         switch (dificultad) {

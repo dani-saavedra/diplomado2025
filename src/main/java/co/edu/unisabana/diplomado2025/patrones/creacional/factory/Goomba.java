@@ -14,7 +14,7 @@ public class Goomba implements Enemigo {
 
     @Override
     public void atacar() {
-
+        System.out.println("Atacando con poder " + vida * velocidad);
     }
 
     @Override
