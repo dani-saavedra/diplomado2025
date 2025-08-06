@@ -17,4 +17,8 @@ public class Servicio {
     public void algo() {
         proveedor.cualquierCosa();
     }
+
+    public void otraCosa() {
+        proveedor.cualquierCosa();
+    }
 }

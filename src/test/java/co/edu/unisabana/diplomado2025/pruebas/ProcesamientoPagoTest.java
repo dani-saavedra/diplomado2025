@@ -1,45 +1,61 @@
 package co.edu.unisabana.diplomado2025.pruebas;
 
+import co.edu.unisabana.diplomado2025.DIP.alto.Notificacion;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class ProcesamientoPagoTest {
 
-    ProcesamientoPago procesamientoPago = new ProcesamientoPago();
+    @Mock
+    Notificacion notificacion;
+
+    @Mock
+    ImpuestosRepository impuestosRepository;
+
+    @InjectMocks
+    ProcesamientoPago procesamientoPago;
+
+    @BeforeEach
+    void setUp() {
+        Mockito.when(impuestosRepository.consultarImpuesto("dian"))
+                .thenReturn(new ImpuestoORM("dian", 100));
+    }
+    //Los unit test están para verificar la lógica de negocio.
 
     @Test
     void Dado_montoMenor10_Entonces_tarifaCero() {
-        //PA QUE ESTA ESTA PRUEBA????
+        //AAA = preparacion, ejecucion y validacion.
         //COBERTURA = 95%, 90%, 85%,.
-        ProcesamientoPago procesamientoPago = new ProcesamientoPago();
-        int tarifa = procesamientoPago.calcularTarifa(9);
+        int tarifa = procesamientoPago.calcularTarifa("dian", 9);
         assertEquals(0, tarifa);
+        Mockito.verify(notificacion).notificar("302", "mensaje " + 9);
+        //Any no sean la carta por defecto que sacamos.
+    }
+
+
+    @Test
+    void Dado_montoMenor100_Entonces_tarifa110() {
+        int tarifa = procesamientoPago.calcularTarifa("dian", 10);
+        assertEquals(110, tarifa);
     }
 
     @Test
-    void Dado_montoMenor100_Entonces_tarifa10() {
-        //PA QUE ESTA ESTA PRUEBA????
-        ProcesamientoPago procesamientoPago = new ProcesamientoPago();
-        int tarifa = procesamientoPago.calcularTarifa(20);
-        assertEquals(10, tarifa);
-    }
-
-    @Test
-    void Dado_montoMayo100_Entonces_tarifa20() {
-        //PA QUE ESTA ESTA PRUEBA????
-        ProcesamientoPago procesamientoPago = new ProcesamientoPago();
-        int tarifa = procesamientoPago.calcularTarifa(200);
-        assertEquals(20, tarifa);
+    void Dado_montoMayorIgual100_Entonces_tarifa120() {
+        int tarifa = procesamientoPago.calcularTarifa("dian", 100);
+        assertEquals(120, tarifa);
     }
 
     @Test
     void Dado_montoInvalido_Entonces_ArrojaException() {
-        ProcesamientoPago procesamientoPago = new ProcesamientoPago();
-        assertThrows(IllegalArgumentException.class, () -> procesamientoPago.calcularTarifa(0));
-
+        assertThrows(IllegalArgumentException.class, () -> procesamientoPago.calcularTarifa("dian", 0));
         //Si algo esta dificil de probar problamente algo se tiene que refactorizar.
     }
     //FIRST
@@ -49,4 +65,6 @@ class ProcesamientoPagoTest {
     //Repeteable = No importa donde se ejcute, el setup esta autocontenido en el código
     //Selfvalidating= Se debe entender el resultado
     //Timely = NO HAGA LAS PRUEBAS DESPUES DE HABER SALIDO A PRODUCCION Y PEOR AUN MESES DESPUES.
+
+    //TDD
 }
