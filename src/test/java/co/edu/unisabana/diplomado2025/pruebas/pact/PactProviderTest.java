@@ -1,6 +1,5 @@
 package co.edu.unisabana.diplomado2025.pruebas.pact;
 
-import au.com.dius.pact.provider.junit5.HttpTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
@@ -8,21 +7,19 @@ import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import co.edu.unisabana.diplomado2025.pruebas.ServiceX;
 import co.edu.unisabana.diplomado2025.pruebas.UserDTO;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("ProductService")
 @PactBroker(host = "localhost", port = "9292")
 public class PactProviderTest {
 
-    @MockBean
+    @MockitoBean
     private ServiceX serviceX;
 
     @TestTemplate
