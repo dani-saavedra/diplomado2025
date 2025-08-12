@@ -1,5 +1,6 @@
-package co.edu.unisabana.diplomado2025.pruebas;
+package co.edu.unisabana.diplomado2025.pruebas.unitest;
 
+import co.edu.unisabana.diplomado2025.pruebas.Calculadora;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
