@@ -26,6 +26,8 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.flywaydb:flyway-mysql'
     runtimeOnly 'com.mysql:mysql-connector-j'
+    testImplementation("au.com.dius.pact.provider:junit5:4.6.17")
+    testImplementation("au.com.dius.pact.provider:junit5spring:4.6.17")
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -35,6 +37,7 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+    System.setProperty("pact.verifier.publishResults", "true");
 }
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run

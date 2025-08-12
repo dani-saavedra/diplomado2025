@@ -1,3 +1,6 @@
+pact:
+  verifier:
+    publishResults: true
 spring:
   application:
     name: Diplomado2025
