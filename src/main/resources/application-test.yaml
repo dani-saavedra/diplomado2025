@@ -1,6 +1,8 @@
 pact:
   verifier:
     publishResults: true
+pactbroker:
+  url: http://localhost:9292
 spring:
   application:
     name: Diplomado2025

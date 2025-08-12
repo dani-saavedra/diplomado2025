@@ -16,7 +16,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("ProductService")
-@PactBroker(host = "localhost", port = "9292")
+@PactBroker(url = "http://localhost:9292")
 public class PactProviderTest {
 
     @MockitoBean
