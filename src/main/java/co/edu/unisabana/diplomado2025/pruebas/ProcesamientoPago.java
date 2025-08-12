@@ -1,8 +1,9 @@
 package co.edu.unisabana.diplomado2025.pruebas;
 
 import co.edu.unisabana.diplomado2025.DIP.alto.Notificacion;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ProcesamientoPago {
 
     private Notificacion notification;
@@ -14,7 +15,7 @@ public class ProcesamientoPago {
     }
 
     public int calcularTarifa(String nombre, int monto) {
-        ImpuestoORM impuestoORM = repository.consultarImpuesto(nombre);
+        ImpuestoORM impuestoORM = repository.findByNombre(nombre);
         int tarifa;
         if (monto <= 0) {
             throw new IllegalArgumentException("el monto no puede ser 0");
@@ -22,9 +23,9 @@ public class ProcesamientoPago {
         if (monto < 10) {
             tarifa = 0;
         } else if (monto < 100) {
-            tarifa = 10 + impuestoORM.getMonto();
+            tarifa = 10 + impuestoORM.getImpuesto();
         } else {
-            tarifa = 20 + impuestoORM.getMonto();
+            tarifa = 20 * impuestoORM.getImpuesto();
         }
         notification.notificar("302", "mensaje " + monto);
         return tarifa;

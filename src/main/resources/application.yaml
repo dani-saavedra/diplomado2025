@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Diplomado2025
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/diplomado
+    username: root
+    password: clave

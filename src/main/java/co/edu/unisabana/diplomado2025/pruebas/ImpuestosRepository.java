@@ -1,7 +1,11 @@
 package co.edu.unisabana.diplomado2025.pruebas;
 
-public interface ImpuestosRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ImpuestosRepository extends JpaRepository<ImpuestoORM, String> {
 
 
-    ImpuestoORM consultarImpuesto(String nombre);
+    ImpuestoORM findByNombre(String nombre);
 }

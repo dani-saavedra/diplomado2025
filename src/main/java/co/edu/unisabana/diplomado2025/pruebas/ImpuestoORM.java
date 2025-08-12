@@ -1,14 +1,26 @@
 package co.edu.unisabana.diplomado2025.pruebas;
 
-//ORM
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name = "tarifa")
+@Entity
 public class ImpuestoORM {
 
+    @Id
     private String nombre;
-    private int monto;
+    @Column
+    private int impuesto;
 
-    public ImpuestoORM(String nombre, int monto) {
+    public ImpuestoORM(String nombre, int impuesto) {
         this.nombre = nombre;
-        this.monto = monto;
+        this.impuesto = impuesto;
+    }
+
+    public ImpuestoORM() {
     }
 
     public String getNombre() {
@@ -19,11 +31,11 @@ public class ImpuestoORM {
         this.nombre = nombre;
     }
 
-    public int getMonto() {
-        return monto;
+    public int getImpuesto() {
+        return impuesto;
     }
 
-    public void setMonto(int monto) {
-        this.monto = monto;
+    public void setImpuesto(int impuesto) {
+        this.impuesto = impuesto;
     }
 }

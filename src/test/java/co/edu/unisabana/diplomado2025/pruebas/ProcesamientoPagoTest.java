@@ -25,7 +25,7 @@ class ProcesamientoPagoTest {
 
     @BeforeEach
     void setUp() {
-        Mockito.when(impuestosRepository.consultarImpuesto("dian"))
+        Mockito.when(impuestosRepository.findByNombre("dian"))
                 .thenReturn(new ImpuestoORM("dian", 100));
     }
     //Los unit test están para verificar la lógica de negocio.
@@ -48,9 +48,9 @@ class ProcesamientoPagoTest {
     }
 
     @Test
-    void Dado_montoMayorIgual100_Entonces_tarifa120() {
+    void Dado_montoMayorIgual100_Entonces_tarifa2000() {
         int tarifa = procesamientoPago.calcularTarifa("dian", 100);
-        assertEquals(120, tarifa);
+        assertEquals(2000, tarifa);
     }
 
     @Test
