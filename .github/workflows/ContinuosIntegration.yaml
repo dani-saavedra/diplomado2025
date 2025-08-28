@@ -1,0 +1,22 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - develop
+      - master
+      - release
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        name: Descargando el codigo
+      - name: Instalar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Instalar Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Compilar
+        run: ./gradlew build
