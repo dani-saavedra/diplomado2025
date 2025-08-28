@@ -5,6 +5,7 @@ on:
       - develop
       - master
       - release
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
