@@ -10,6 +10,6 @@ spring:
     hibernate:
       ddl-auto: validate
   datasource:
-    url: jdbc:mysql://localhost:3306/diplomado
-    username: root
-    password: clave
+    url: jdbc:mysql://${HOST}:3306/diplomado
+    username: ${USER}
+    password: ${PASS}

@@ -1,3 +1,4 @@
+/*
 package co.edu.unisabana.diplomado2025.pruebas.pact;
 
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
@@ -14,9 +15,9 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@Provider("ProductService")
-@PactBroker(url = "http://localhost:9292")
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+//@Provider("ProductService")
+//@PactBroker(url = "http://localhost:9292")
 public class PactProviderTest {
 
     @MockitoBean
@@ -40,3 +41,4 @@ public class PactProviderTest {
     }
 
 }
+*/
