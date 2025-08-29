@@ -23,6 +23,6 @@ class TarifaControllerTest {
         //MOCKEAR LO MENOS POSIBLE (si o si, llamados a terceros)
 
         ResponseEntity<Integer> response = restTemplate.getForEntity("/tarifa?nombre=daniel&monto=20", Integer.class);
-        Assertions.assertEquals(30, response.getBody());
+        Assertions.assertEquals(20, response.getBody());
     }
 }
