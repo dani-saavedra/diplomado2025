@@ -6,6 +6,8 @@ on:
       - master
       - release
       - main
+permissions:
+  pull-requests: write
 jobs:
   build:
     runs-on: ubuntu-latest
