@@ -15,4 +15,9 @@ public class UsersController {
     public UserDTO consultarUsuario(@PathVariable int id) {
         return serviceX.consultarUsuario();
     }
+
+    @GetMapping("/usuario")
+    public String consultarUsuario() {
+        return "Daniel S.";
+    }
 }
