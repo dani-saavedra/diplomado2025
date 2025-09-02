@@ -1,3 +1,4 @@
+pod: ${POD}
 pact:
   verifier:
     publishResults: true
