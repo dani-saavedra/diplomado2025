@@ -15,7 +15,7 @@ public class UsersController {
 
     private ServiceX serviceX;
 
-    @Value("${pod}")
+    @Value("${pod:CUALQUIERCOSA}")
     private String nombrePod;
 
     @GetMapping("/users/{id}")
