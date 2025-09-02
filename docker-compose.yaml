@@ -1,0 +1,23 @@
+services:
+  bd:
+    image: mysql
+    container_name: dani_database
+    environment:
+      MYSQL_ROOT_PASSWORD: 'clave'
+      MYSQL_DATABASE: 'db'
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+
+  gestor-base-datos:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - bd
+    environment:
+      PMA_ARBITRARY: 1
+    ports:
+      - 8080:80
+volumes:
+  db-data:
