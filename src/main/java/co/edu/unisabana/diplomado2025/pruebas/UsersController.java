@@ -28,4 +28,9 @@ public class UsersController {
         log.info("Consultando usuario");
         return "Daniel S. desde el pod" + nombrePod;
     }
+    @GetMapping("/estudiante")
+    public String estudiante() {
+        log.info("Consultando estudiante");
+        return "Jaime A. desde el pod" + nombrePod;
+    }
 }

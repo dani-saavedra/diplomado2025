@@ -24,7 +24,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: danielsabana/my-tech
-          tags: latest
+          tags: ${{ github.sha }}
           registry: docker.io
           dockerfile: Dockerfile
           username: danielsabana
