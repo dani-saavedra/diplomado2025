@@ -33,4 +33,10 @@ public class UsersController {
         log.info("Consultando estudiante");
         return "Jaime A. desde el pod" + nombrePod;
     }
+
+    @GetMapping("/despedida")
+    public String despedida() {
+        log.info("Fue un gusto");
+        return "Arrireros somos y en el camino nos encontramo";
+    }
 }
