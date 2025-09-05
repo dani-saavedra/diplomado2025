@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mytech
-          image: danielsabana/my-tech:3261c9ac2c84768c85bb0dc6b273e475413a54f3
+          image: danielsabana/my-tech:20b6f1067dbaa3f4fddec3661d056c5121d5cdd8
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
