@@ -1,0 +1,19 @@
+pod: ${POD}
+pact:
+  verifier:
+    publishResults: true
+pactbroker:
+  url: http://localhost:9292
+spring:
+  application:
+    name: Diplomado2025
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  flyway:
+    enabled: false

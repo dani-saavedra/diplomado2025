@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mytech
+  namespace: npe
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /mytech(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: mytech
+            port:
+              number: 80

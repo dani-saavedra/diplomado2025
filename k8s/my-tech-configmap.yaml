@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mytech
+  namespace: npe
+data:
+  mensaje: "Hola soy el mensaje leido desde configmap"

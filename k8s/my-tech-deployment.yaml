@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytech
+  namespace: npe
+  labels:
+    app: mytech
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mytech
+  template:
+    metadata:
+      labels:
+        app: mytech
+    spec:
+      containers:
+      - name: mytech
+        image: danielsabana/my-tech:a6f203972b361c398cab079abdf45b78b1aaa1c3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 600Mi
+        startupProbe:
+          httpGet:
+            path: /usuario
+            port: 8080
+          initialDelaySeconds: 9
+        env:
+          - name: POD
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MENSAJE
+            valueFrom:
+              configMapKeyRef:
+                name: mytech
+                key: mensaje
