@@ -44,7 +44,7 @@ jobs:
           NEW_TAG: ${{ env.GIT_SHA_SHORT }}
         run: |
           cd diplomado2025
-          yq eval ".spec.template.spec.containers[0].image = \"${{ env.IMAGE_NAME }}:${{ github.sha }}\"" -i my-tech-deployment.yaml
+          yq eval ".spec.template.spec.containers[0].image = \"${{ env.IMAGE_NAME }}:${{ github.sha }}\"" -i k8s/my-tech-deployment.yaml
       - name: Commit changes in external repo
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
