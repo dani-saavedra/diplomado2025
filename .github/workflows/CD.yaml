@@ -36,23 +36,23 @@ jobs:
         run: |
           git clone --single-branch --branch ${{ env.BRANCH }} ${{ env.EXTERNAL_REPO }} diplomado2025
           cd diplomado2025
-          - name: yq - portable yaml processor
-            uses: mikefarah/yq@v4.44.3
-          - name: Set new image tag
-            env:
-              IMAGE_NAME: danielsabana/my-tech
-              NEW_TAG: ${{ env.GIT_SHA_SHORT }}
-            run: |
-              cd diplomado2025
-              yq eval ".spec.template.spec.containers[0].image = \"${{ env.IMAGE_NAME }}:${{ github.sha }}\"" -i my-tech-deployment.yaml
-          - name: Commit changes in external repo
-            env:
-              GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            run: |
-              cd diplomado2025
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
-              git add .
-              git commit -m "Actualiza imagen a ${{ env.IMAGE_NAME }}:${{ github.sha }}"
-              git remote set-url origin https://dani-saavedra:${{ env.GITHUB_TOKEN }}@github.com/dani-saavedra/diplomado2025.git
-              git push origin main
+      - name: yq - portable yaml processor
+        uses: mikefarah/yq@v4.44.3
+      - name: Set new image tag
+        env:
+          IMAGE_NAME: danielsabana/my-tech
+          NEW_TAG: ${{ env.GIT_SHA_SHORT }}
+        run: |
+          cd diplomado2025
+          yq eval ".spec.template.spec.containers[0].image = \"${{ env.IMAGE_NAME }}:${{ github.sha }}\"" -i my-tech-deployment.yaml
+      - name: Commit changes in external repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          cd diplomado2025
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Actualiza imagen a ${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          git remote set-url origin https://dani-saavedra:${{ env.GITHUB_TOKEN }}@github.com/dani-saavedra/diplomado2025.git
+          git push origin main
