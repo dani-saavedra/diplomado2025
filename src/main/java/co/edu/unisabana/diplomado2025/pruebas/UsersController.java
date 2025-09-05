@@ -39,4 +39,10 @@ public class UsersController {
         log.info("Fue un gusto");
         return "Arrireros somos y en el camino nos encontramo";
     }
+
+    @GetMapping("/argo")
+    public String despliegueargo() {
+        log.info("fui desplegado con argo");
+        return "fui desplegado con argo";
+    }
 }
